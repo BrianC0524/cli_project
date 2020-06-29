@@ -14,14 +14,22 @@ class CurrencyApi
     
   end
   
-  def parse_json
+  def get_currency_type
     response_data = JSON.parse(get_response_body)
 
-    currency_collection = response_data["lines"].map.with_index do |v, i|
-      "#{i+1}. #{v["currencyTypeName"]}"
+    currency_type = response_data["lines"].map do |v|
+      v["currencyTypeName"]
     end
-    
-    currency_collection
+    currency_type
+  end
+  
+  def get_chaos_value
+    response_data = JSON.parse(get_response_body)
+
+    chaos_value = response_data["lines"].map do |item|
+      item["receive"]["value"]
+    end
+    chaos_value
   end
   
   
