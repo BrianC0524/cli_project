@@ -1,8 +1,7 @@
 # CliProject
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/cli_project`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+CLI for viewing Path of Exile currency exchange rates for the commonly traded Chaos currency. 
+Pulled directly from poe.ninja the conversion rates for X currency => Chaos update along side the current markets demand.
 
 ## Installation
 
@@ -22,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Enter a number from the list to select which currency you wish to view the Chaos value of.
 
 ## Development
 
