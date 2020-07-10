@@ -12,7 +12,7 @@ class CliProject::CLI
   def call
     puts "Welcome to POExchange"
     puts "Loading Currency from poe.ninja..."
-    sleep(5)
+    sleep(15)
     list_currency
     puts "----------------------------------------------------------------"
     puts "Please enter a number (1-#{@currency_list.types.count}) of the currency you wish to view."

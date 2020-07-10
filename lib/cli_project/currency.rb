@@ -4,7 +4,7 @@ class Currency
   attr_reader :currency_hash, :types, :values
   
   def initialize
-    @currency_hash = CurrencyApi.new.get_currency_type_and_value
+    @currency_hash = CurrencyApi.all
     @types = @currency_hash.keys
     @values = @currency_hash.values
   end

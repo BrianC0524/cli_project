@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 
-require './lib/cli_project'
+require_relative '../lib/cli_project'
 CliProject::CLI.new.call
