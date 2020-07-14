@@ -16,17 +16,17 @@ class CliProject::CLI
     puts "Welcome to POExchange"
     puts "Loading Currency from poe.ninja..."
     #sleep(5)
-    list_currency
+    puts Currency.list_currency
     puts "----------------------------------------------------------------"
     puts "Please enter a number (1-#{@currency_list.count}) of the currency you wish to view."
-    #userInput
+    userInput
   end
   
-  def list_currency
-    @currency.each_with_index do |item, index|
-      puts "#{index+1}. #{item.name}"
-    end
-  end
+  # def list_currency
+  #   @currency.each_with_index do |item, index|
+  #     puts "#{index+1}. #{item.name}"
+  #   end
+  # end
   
   def userInput
     input = nil

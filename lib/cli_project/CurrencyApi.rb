@@ -25,6 +25,12 @@ class CurrencyApi
     end
   end
   
+  def list_currency
+    @currency.each_with_index do |item, index|
+      puts "#{index+1}. #{item.name}"
+    end
+  end
+  
   def all
     @CURRENCY_AND_VALUES
   end
