@@ -4,9 +4,13 @@ require 'json'
 
 
 class CurrencyApi
-  
+
   URL = "https://poe.ninja/api/data/CurrencyOverview?league=Harvest&type=Currency&language=en"
-  CURRENCY_AND_VALUES = {}
+  @CURRENCY_AND_VALUES = []
+
+  def initialize
+    save
+  end
   
   def get_response_body
     uri = URI.parse(URL)
@@ -14,14 +18,14 @@ class CurrencyApi
     response.body
   end
   
-  def get_currency_type_and_value
+  def save
     response_data = JSON.parse(get_response_body)
-    response_data["lines"].map {|lines| CURRENCY_AND_VALUES["#{lines["currencyTypeName"]}"] = lines["receive"]["value"]}
+    @CURRENCY_AND_VALUES = response_data["lines"].map do |lines| 
+      Currency.new(lines["currencyTypeName"], lines["receive"]["value"])
+    end
   end
   
-  def self.all
-    
-    CURRENCY_AND_VALUES
-    
+  def all
+    @CURRENCY_AND_VALUES
   end
 end
