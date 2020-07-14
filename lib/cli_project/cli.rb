@@ -2,13 +2,11 @@ require './lib/cli_project/CurrencyApi.rb'
 require './lib/cli_project/currency.rb'
 
 class CliProject::CLI
-  attr_reader :currency_list, :currency_values, :currency
+  attr_reader :currency
   
   
   def initialize
     @currency = Currency.all
-    @currency_list = Currency.names
-    @currency_values = Currency.values
   end
   
   def call
@@ -18,25 +16,19 @@ class CliProject::CLI
     #sleep(5)
     puts Currency.list_currency
     puts "----------------------------------------------------------------"
-    puts "Please enter a number (1-#{@currency_list.count}) of the currency you wish to view."
+    puts "Please enter a number (1-#{@currency.count}) of the currency you wish to view."
     userInput
   end
-  
-  # def list_currency
-  #   @currency.each_with_index do |item, index|
-  #     puts "#{index+1}. #{item.name}"
-  #   end
-  # end
   
   def userInput
     input = nil
     while input != "exit"
       input = gets.downcase.strip
       index = input.to_i
-      if index > 0 && index <= @currency_list.length && @currency_values[index - 1].to_i > 1
-        puts "#{@currency_list[index - 1]} is currently worth #{@currency_values[index - 1].to_i} chaos!"
-      elsif index > 0 && index <= @currency_list.length && @currency_values[index - 1].to_i < 1
-        puts "#{@currency_list[index - 1]} is currently worth less than 1 chaos!"
+      if index > 0 && index <= @currency.length && @currency[index - 1].value.to_i > 1
+        puts "#{@currency[index - 1].name} is currently worth #{@currency[index - 1].value.to_i} chaos!"
+      elsif index > 0 && index <= @currency.length && @currency[index - 1].value.to_i < 1
+        puts "#{@currency[index - 1].name} is currently worth less than 1 chaos!"
       elsif input == "exit"
         shutdown
       else
