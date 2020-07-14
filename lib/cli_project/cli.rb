@@ -33,10 +33,10 @@ class CliProject::CLI
     while input != "exit"
       input = gets.downcase.strip
       index = input.to_i
-      if index > 0 && index <= @currency_list.length && @currency_values[input.to_i - 1].to_i > 1
-        puts "#{@currency_list[input.to_i - 1]} is currently worth #{@currency_values[input.to_i - 1].to_i} chaos!"
-      elsif index > 0 && index <= @currency_list.length && @currency_values[input.to_i - 1].to_i < 1
-        puts "#{@currency_list[input.to_i - 1]} is currently worth less than 1 chaos!"
+      if index > 0 && index <= @currency_list.length && @currency_values[index - 1].to_i > 1
+        puts "#{@currency_list[index - 1]} is currently worth #{@currency_values[index - 1].to_i} chaos!"
+      elsif index > 0 && index <= @currency_list.length && @currency_values[index - 1].to_i < 1
+        puts "#{@currency_list[index - 1]} is currently worth less than 1 chaos!"
       elsif input == "exit"
         shutdown
       else
