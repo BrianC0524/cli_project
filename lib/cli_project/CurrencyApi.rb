@@ -24,8 +24,4 @@ class CurrencyApi
       Currency.new(lines["currencyTypeName"], lines["receive"]["value"])
     end
   end
-  
-  def all
-    @CURRENCY_AND_VALUES
-  end
 end
